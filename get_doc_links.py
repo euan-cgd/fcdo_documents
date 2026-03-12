@@ -74,3 +74,6 @@ collectdocs.loc[:,'IS'] = collectdocs['narrative'].str.contains(r"intervention ?
 # Just ex-DFID bits
 dfid = collectdocs[(~collectdocs["parent"].str.contains('GOV-3')) & ((collectdocs.AR==1) | (collectdocs.BC==1) | (collectdocs.PCR==1))]
 dfid.loc[:,'ADD'] = dfid.loc[:,'narrative'].str.contains(r'addendum', case=False).astype(int)
+
+bc  = dfid[(dfid.ADD==0) & (dfid.BC==1)]
+add = dfid[(dfid.ADD==1) & (dfid.BC==1)] 
