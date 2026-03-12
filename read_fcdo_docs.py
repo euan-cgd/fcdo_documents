@@ -53,3 +53,14 @@ for x,y in enumerate(bc['link']):
     bctext[x] = thetext
 bc['TEXT']  = list(bctext.values())
 
+
+## --------- READ IN NEW ADDENDUM DOCUMENTS
+addtext = {}
+for x,y in enumerate(add['link']):
+    try:
+        thetext = readtext(y)
+    except:
+        thetext = 'link_broken'
+    addtext[x] = thetext
+add['TEXT']  = list(addtext.values())
+
